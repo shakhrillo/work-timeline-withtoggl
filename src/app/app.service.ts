@@ -37,4 +37,15 @@ export class AppService {
             }
         })
     }
+    getAgileBoards(){
+        let url = 'https://mobiledev.myjetbrains.com/youtrack/rest/admin/agile';
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+              'Access-Control-Allow-Origin': 'http://localhost:4200/',
+              'Access-Control-Allow-Methods': 'GET'
+            })
+        };
+        return this.http.get(url);
+    }
 }

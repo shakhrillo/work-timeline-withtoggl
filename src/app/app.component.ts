@@ -12,6 +12,14 @@ export class AppComponent {
   public userWeekReport;
   selectedWorkSpace:number = 0;
   constructor(private core: AppService){
+    this.core.getAgileBoards().subscribe(
+      res=>{
+        console.log(res);
+      },
+      err=>{
+        console.log(err);
+      }
+    );
     this.core.authUser(this.token).subscribe((res:any)=>this.user=res.data);
   }
   
